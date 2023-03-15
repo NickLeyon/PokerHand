@@ -118,6 +118,10 @@ public class main {
 				System.out.println("\nIt's a tie!");
 			}
 			
+			//Reset memory for new attempts
+			cards = new Card[9];
+			//
+			
 			System.out.print("\nAgain? [Y/N]: ");
 			do {	//Loop to ensure correct input is entered.
 				do {
@@ -173,11 +177,14 @@ public class main {
 		for(int i = 1; i < c.length(); i++) {
 			sRank += c.charAt(i);
 		}
+
+		rank = Integer.parseInt(sRank);
+		
 		if (rank == 1) {	//Ace is actually 14 and not 1.
 			rank = 14;
 		}
-		rank = Integer.parseInt(sRank);
 		
+		//Failsafe to turn Ace from 1 -> 14 built in the constructor.
 		return new Card(suit, rank);
 	}
 	
